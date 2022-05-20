@@ -116,7 +116,7 @@ if cust_df:
         newdf = df.merge(weights, on='Date').dropna()
         newdf['MSR Portfolio']=np.nan
         newdf['MSR Portfolio'][0] = 10000
-        newdf[df.columns+'(Q)']=0
+        newdf[df.columns+'(Q)']=np.nan
 
         newdf.iloc[0,-6:] = np.divide((newdf['MSR Portfolio'][0]*newdf[df.columns+'(%)'].iloc[0,:]).values, newdf[df.columns].iloc[0,:].values)
         for i in range(1,len(newdf)):
